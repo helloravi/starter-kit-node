@@ -1,0 +1,16 @@
+version: "2"
+services:
+  web:
+    image: dynamo:latest
+    ports:
+      - "3000:3000"
+    links:
+      - ravidynamo
+    depends_on:
+      - ravidynamo
+  ravidynamo:
+    image: fitz/dynamodb-local
+    command: -inMemory
+    ports:
+      - "8000:8000"
+

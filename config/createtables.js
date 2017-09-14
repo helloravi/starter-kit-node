@@ -20,9 +20,9 @@ module.exports = function () {
 		'load_receipts': {readCapacity: 10, writeCapacity: 10}
 	}, function(err) {
 		if (err) {
-			logger.log('Error creating tables: ', err);
+			logger.error('Error creating tables: ', err);
 		} else {
-			logger.log('Tables have been created');
+			logger.info('Tables have been created');
 		}
 	});
 }

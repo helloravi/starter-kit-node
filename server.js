@@ -7,6 +7,7 @@ const express = require("express"),
 	vogels = require('vogels'),
     morgan = require('morgan'),
     logger = require('./config/logger'),
+    cors = require('cors'),
     app = express(),
     bodyParser = require("body-parser");
 
@@ -36,7 +37,7 @@ consumer.on('offsetOutOfRange', function (err) {
         kafkaRouter.offsetOutOfRange(err);
 })
                 
-
+app.use(cors());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 
